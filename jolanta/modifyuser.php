@@ -11,16 +11,26 @@
 
 $conn = mysqli_connect("localhost","root","","projekcik12");
 
-$user_id = $_POST['user_id'];
-
-$sql = "SELECT * FROM users WHERE id = $user_id";
-
-$result = mysqli_connect($conn, $sql);
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edytuj'])){
+        $wiek = $_POST['wiek'];
+        $id = $_POST['id'];
+        $sql2 = "UPDATE users SET wiek = $wiek where id = $id";
+        mysqli_query($conn, $sql2);
+        header("Location: index.php");
+        exit;
+    };
+    
+    $user_id = $_POST['user_id'];
+    
+    $sql = "SELECT * FROM users WHERE id = $user_id";
+    
+    $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($result)){
 
     $imie = $row['imie'];
     $wiek = $row['wiek'];
+    $id = $row['id'];
 
     echo "
         <form action='./modifyuser.php' method='POST'>
@@ -29,21 +39,13 @@ while ($row = mysqli_fetch_assoc($result)){
             <label>
             Podaj wartość wieku do zmiany
             <input type='number' value='$wiek' name='wiek' id='wiek' plaecholder='Podaj wiek do zmiany'>
-            
+            <input type='hidden' name='id' id='id' value=$id>
             </label>
         </fieldset>
         <button name= 'edytuj'>Edytuj</button>
         </form>
     
     ";
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edytuj'])){
-        $wiek = $_POST['wiek'];
-        $sql2 = "UPDATE users SET wiek = $wiek where id = $user_id";
-        mysqli_query($conn, $sql2);
-
-
-    };
 
 }
 
