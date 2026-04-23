@@ -130,6 +130,14 @@
             <form action="modifyuser.php" method="POST">
                 <input type="number" name="user_id" id="user_id" placeholder="Podaj ID użytkownika">
                 <button>Modyfikuj użytkownika</button>
+                <hr>
+            </form>
+            
+            <form action="modifyuser2.php" method="POST">
+                <input type="number" name="user_id" id="user_id" placeholder="Podaj ID użytkownika">
+                <input type="number" name="wiek" id="wiek" placeholder="podaj nowy wiek użytkownika">
+                <button>Modyfikuj użytkownika</button>
+                <hr>
             </form>
             <h3>Usunięcie konkretnego użytkownika</h3>
             <hr>
