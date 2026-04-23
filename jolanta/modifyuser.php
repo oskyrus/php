@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            margin: 0px;
+            align-items: center;
+            justify-content: center;
+            background-color: blue;
+        }
+        fieldset {
+            display: flex;
+            border: 2px solid white;
+            margin: 10px 0px;
+        }
+        button, input[type="number"]{
+            background-color: blue;
+            border: 2px solid white;
+            color: white;
+        }
+        legend, label {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     

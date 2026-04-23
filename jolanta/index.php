@@ -16,15 +16,18 @@
             align-items: center;
             height: 100vh;
         }
-        body > hr{
+
+        body>hr {
             width: 80%;
             border-width: 2px;
         }
-        main{
+
+        main {
             display: flex;
             width: 100%;
             justify-content: space-around;
         }
+
         .container {
             padding: 30px;
             border-radius: 10px;
@@ -46,21 +49,30 @@
             text-align: center;
             color: #3f4b83;
         }
-        h1 button{
+
+        h1 button {
             margin-left: 0.3rem;
         }
 
         ol {
             padding: 0 1rem 1rem 1rem;
         }
-        ol li{
+
+        ol li {
             background-color: #4f5b9310;
             border-radius: 0.3rem;
             /* list-style-type: '✅'; */
         }
-        ol > li > h4,p{
+
+        ol>li>h4,
+        p {
             padding-left: 1rem;
             padding-top: 0.5rem;
+        }
+
+        span {
+            display: flex;
+            flex-direction: column;
         }
 
         form {
@@ -132,7 +144,7 @@
                 <button>Modyfikuj użytkownika</button>
                 <hr>
             </form>
-            
+
             <form action="modifyuser2.php" method="POST">
                 <input type="number" name="user_id" id="user_id" placeholder="Podaj ID użytkownika">
                 <input type="number" name="wiek" id="wiek" placeholder="podaj nowy wiek użytkownika">
@@ -167,10 +179,17 @@
             <li>
                 <h4>Imię: $imie <sup>[ ID: $id ]</sup></h4>
                 <p>Wiek: $wiek</p>
+                <span>
                 <form action='removeuser.php' method='POST'>
                     <input type='hidden' value=$id name='id'>
                     <button>Usuń</button>
                 </form>
+                  <form action='modifyuser.php' method='POST'>
+                <input type='hidden' name='user_id' value=$id placeholder='Podaj ID użytkownika'>
+                <button>Modyfikuj użytkownika</button>
+                </form>
+                </span>
+                <hr>
             </li>";
                 }
                 ?>
