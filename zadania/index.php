@@ -135,7 +135,7 @@
             <input type="text" name="name" id="name" placeholder="Your name">
             <select name="select">
                 <option>Poland</option>
-                <option>Germany</option>
+                <option>Germany</option>    
                 <option>Russia</option>
                 <option>Hungary</option>
                 <option>Lativa</option>
@@ -146,22 +146,22 @@
             </span>
         </form>
         <!-- p3 -->
-        <form>
+        <form method="POST" action="exercise/p3.php">
             <h3>p3. Choose user gender form 👪</h3>
             <sub>Redirect form into <mark>exercise/p3.php</mark>, with correct method.</sub>
             <sub>ℹ️ Remember to include value into inputs</sub>
             <span>
                 <label for="">
-                    Men <input type="radio">
+                    Men <input type="radio" name="radio" value="man">
                 </label>
                 <label for="">
-                    Women <input type="radio">
+                    Women <input type="radio" name="radio" value="woman">
                 </label>
                 <label for="">
-                    Other <input type="radio">
+                    Other <input type="radio" name="radio" value="other">
                 </label>
                 <label for="">
-                    Rather not say <input type="radio">
+                    Rather not say <input type="radio" name="radio" value="rather">
                 </label>
             </span>
             <span>
@@ -169,15 +169,15 @@
             </span>
         </form>
         <!-- p4 -->
-        <form>
+        <form method="POST" action="exercise/p4.php">
             <h3>p4. Validate user form 🧮</h3>
             <sub>Validate: name (min 3 chars), surname (required), checkbox must be checked.</sub>
             <sub>Display errors or success message on <mark>exercise/p4.php</mark>.</sub>
             <sub>ℹ️ Use functions: <mark title="isset($_POST['NAME OF INPUT HERE']) - returns true/false depends of content of input">isset()</mark>, <mark title="empty($_POST['NAME OF INPUT HERE']) - returns true/false depends on emptiness of input">empty()</mark>, <mark title="strlen($_POST['NAME OF INPUT HERE']) - returns number of letters.">strlen()</mark></sub>
-            <input type="text" placeholder="Name here">
-            <input type="text" placeholder="Surname here">
+            <input type="text" placeholder="Name here" name="name" required minlength="3">
+            <input type="text" placeholder="Surname here" name="surname" required minlength="3">
             <label for="terms">
-                <input type="checkbox" id="terms">
+                <input type="checkbox" id="terms" name="terms" required>
                 Do you agree on <a href="terms.php">terms</a>?
             </label>
             <span>
@@ -186,7 +186,7 @@
             </span>
         </form>
         <!-- p5 -->
-        <form>
+        <form method="POST" action="exercise/p5.php">
             <h3>p5. Create user in database ⚙️</h3>
             <sub>Redirect form into <mark>exercise/p5.php</mark>, with method correct method.</sub>
             <sub>Send data to table <mark>users</mark> - <a href='./database.sql'>database is ready to download here</a></sub>
@@ -196,7 +196,7 @@
             <input type="email" name="email" id="email" placeholder="E-mail here">
             <input type="text" name="student_index" id="student_index" placeholder="Student index">
             <span>
-                <button>Send</button>
+                <button name="send">Send</button>
             </span>
         </form>
         <!-- p6 -->
