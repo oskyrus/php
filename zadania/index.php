@@ -174,8 +174,8 @@
             <sub>Validate: name (min 3 chars), surname (required), checkbox must be checked.</sub>
             <sub>Display errors or success message on <mark>exercise/p4.php</mark>.</sub>
             <sub>ℹ️ Use functions: <mark title="isset($_POST['NAME OF INPUT HERE']) - returns true/false depends of content of input">isset()</mark>, <mark title="empty($_POST['NAME OF INPUT HERE']) - returns true/false depends on emptiness of input">empty()</mark>, <mark title="strlen($_POST['NAME OF INPUT HERE']) - returns number of letters.">strlen()</mark></sub>
-            <input type="text" placeholder="Name here" name="name" required minlength="3">
-            <input type="text" placeholder="Surname here" name="surname" required minlength="3">
+            <input type="text" placeholder="Name here" name="name3" required minlength="3">
+            <input type="text" placeholder="Surname here" name="surname3" required minlength="3">
             <label for="terms">
                 <input type="checkbox" id="terms" name="terms" required>
                 Do you agree on <a href="terms.php">terms</a>?
@@ -200,7 +200,7 @@
             </span>
         </form>
         <!-- p6 -->
-        <form>
+        <form method="POST" action="exercise/p6.php">
             <h3>p6. Add excercise to database ➕</h3>
             <sub>Redirect form into <mark>exercise/p6.php</mark>, with method correct method.</sub>
             <label for="user_id">
@@ -240,7 +240,7 @@
             </span>
         </form>
         <!-- p7 -->
-        <form>
+        <form method="GET" action="exercise/p7.php">
             <h3>p7. Display user and their exercises from database 😶‍🌫️</h3>
             <sub>Redirect form into <mark>exercise/p7.php</mark> and display, with method <mark>GET</mark>.</sub>
             <sub title="Only thing you will need is id from table user and inner join to table exercise">Create correct form for this exercise.</sub>
@@ -249,10 +249,11 @@
             </span>
         </form>
         <!-- p8 -->
-        <form>
+        <form method="POST" action="exercise/p8.php">
             <h3>p8. Delete user with their exercise ⚠️</h3>
             <sub>Redirect form into <mark>exercise/p8.php</mark>, with method <mark>POST</mark>.</sub>
             <sub title="Only thing you will need is id from table user and remember to remove first exercise">Create correct form for this exercise.</sub>
+            <input type="number" name="user_id" placeholder="ID użtykowinka">
             <span>
                 <button>Delete</button>
             </span>
