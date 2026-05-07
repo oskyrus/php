@@ -86,21 +86,22 @@
             width: 100%;
             padding: 0.5rem;
         }
+        table,td,tr,th {
+        align-items: center;
+        justify-content: center;
+        border: 1px black solid;
+        border-collapse: collapse;
+        text-align: center;
+        width: 100%;
+    }
     </style>
-    <script defer>
-        document.addEventListener("DOMContentLoaded", () => {
-            if (localStorage.getItem('database') !== 'ok') {
-                let res
-                while (!(res = prompt("Before starting, please load `database.sql` into your phpmyadmin. \nType understood to close this window.") === 'understood')) {
-                    localStorage.setItem('database', 'ok');
-                }
-            }
-        })
-    </script>
+   
 </head>
 
 <body>
     <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);   
     $conn = mysqli_connect("localhost", "root", "", "php_practice");
     ?>
     <header>
@@ -240,16 +241,48 @@
             </span>
         </form>
         <!-- p7 -->
-        <form method="GET" action="exercise/p7.php">
+        <form method="GET" action="index.php#p7" id="p7">
             <h3>p7. Display user and their exercises from database 😶‍🌫️</h3>
             <sub>Redirect form into <mark>exercise/p7.php</mark> and display, with method <mark>GET</mark>.</sub>
             <sub title="Only thing you will need is id from table user and inner join to table exercise">Create correct form for this exercise.</sub>
+            <label for="user_id">
+                User:
+                <select name="user_id" id="user_id">
+                    <?php
+                    $sql = "SELECT id, first_name FROM users";
+
+                    $result = mysqli_query($conn, $sql);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $user_id = $row['id'];
+                        $first_name = $row['first_name'];
+
+                        echo "<option value='$user_id'>$user_id</option>";
+                    }
+                    ?>
+                </select>
+                </label>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <?php
+                        include("p7.php");
+                     ?>
+
+                </table>
             <span>
                 <button>Show</button>
+                
             </span>
+
         </form>
         <!-- p8 -->
-        <form method="POST" action="exercise/p8.php">
+        <form method="POST" action="p8.php#p7">
             <h3>p8. Delete user with their exercise ⚠️</h3>
             <sub>Redirect form into <mark>exercise/p8.php</mark>, with method <mark>POST</mark>.</sub>
             <sub title="Only thing you will need is id from table user and remember to remove first exercise">Create correct form for this exercise.</sub>

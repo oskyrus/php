@@ -12,8 +12,13 @@ $student_index = $_POST['student_index'];
 
 $sql = "INSERT INTO users VALUES (NULL,'$first_name', '$last_name', '$email', '$student_index',NULL)";
 
-
-
+if(mysqli_affected_rows($conn)){
+    echo "nie utworzono użytkownika";
+}else {
+    echo "utworzono użytkownika $first_name $last_name $email $student_index ";
+    
+}
 mysqli_query($conn,$sql);
+
 
 

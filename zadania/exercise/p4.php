@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$name3 = $_POST['name'];
-$surname3 = $_POST['surname'];
+$name3 = $_POST['name3'];
+$surname3 = $_POST['surname3'];
 
 
 if(empty($name3)) {
